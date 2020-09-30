@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Batch-Converting Video Files with Handbrake and Python - Geoffrey Tuttle</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Geoffrey Tuttle" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Geoffrey Tuttle</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Batch-Converting Video Files with Handbrake and Python</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2016-08-07T19:35:17Z">Sunday, Aug 7, 2016</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/blog/" rel="category">Blog</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<p>Over the past few years, I have acquired quite a video collection. Hundreds of files have been downloaded or DVDs ripped, resulting in nearly a terabyte of television and movies. I usually use Handbrake to rip files off a DVD, since it has several parameters that can be tweaked to give the ideal video output. I can easily name the file, specify an output format, and even create a queue for getting multiple videos from a disk. Handbrake does a great job with movies, since often it is a single file that needs extracting. TV shows are a bit more cumbersome, due to multiple disks being involved. For this reason, I have developed the following workflow to easily rip TV shows from a DVD set.</p>
+<ol>
+<li>
+<p>I start by using MakeMKV to rip individual episodes from a disk. Its simple interface allows for quick renaming of files, and the extraction process takes a matter of minutes for each disk. I like to use a short, standard naming scheme for the episodes, such as &ldquo;0103&rdquo; for &ldquo;Season 1, Episode 3&rdquo;</p>
+<p><img src="/img/wp_imgs/2016/08/makemkvrename1.png?w=193" alt="MakeMKVrename1"></p>
+</li>
+<li>
+<p>After extracting, I quickly skim the videos, making sure I have labeled everything correctly. I haven&rsquo;t encountered any disks that kept the episodes out of order, but sometimes there are special features I want to keep. In this particular case, some of the episodes of Daria had introductions by the characters at the beginning. I&rsquo;ve found the easiest way to skim is with VLC. It has a small footprint when used, and can read just about any file format.</p>
+</li>
+<li>
+<p>Unfortunately, the output files from MakeMKV are huge, usually  around 800 MB for a short, 20 minute video. Using the Handbrake command line interface (CLI) and Python, I wrote a small script that could rename the files and convert them to a smaller file. The comments of the script are pretty clear, but the main gist of the program is to:</p>
+<ol>
+<li>Scan a given directory for files</li>
+<li>Make a list of found files</li>
+<li>Go through the list, converting videos and renaming to fit the naming scheme.</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># This script reads the *.mkv files in a given directory, and uses Handbrake</span>
+<span style="color:#75715e"># to convert them to a smaller filesize and specific naming scheme.</span>
+<span style="color:#75715e"># This script written by Geoffrey Tuttle</span>
+ 
+<span style="color:#75715e"># Import necessary modules</span>
+<span style="color:#f92672">from</span> pathlib <span style="color:#f92672">import</span> Path  <span style="color:#75715e"># manipulates computer directories</span>
+<span style="color:#f92672">from</span> subprocess <span style="color:#f92672">import</span> call  <span style="color:#75715e"># call(command, shell=True) runs command from cmd</span>
+ 
+<span style="color:#75715e"># Define locations and show name</span>
+input_path <span style="color:#f92672">=</span> Path(<span style="color:#e6db74">&#39;C:/Users/geoff_000/Videos/MakeMKV&#39;</span>)  <span style="color:#75715e"># Input directory</span>
+output_path <span style="color:#f92672">=</span> Path(<span style="color:#e6db74">&#39;E:/Videos/TV/Daria/&#39;</span>)  <span style="color:#75715e"># Output directory</span>
+show_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Daria&#39;</span>
+ 
+<span style="color:#75715e"># Create list of files to be converted</span>
+handles <span style="color:#f92672">=</span> [x<span style="color:#f92672">.</span>stem <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> input_path<span style="color:#f92672">.</span>iterdir()]
+input_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;C:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Users</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">geoff_000</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Videos</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">MakeMKV</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span>
+output_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;E:</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Videos</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">TV</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">Daria</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">&#39;</span>
+ 
+<span style="color:#75715e"># Iterate through list of video files, converting them using Handbrake</span>
+<span style="color:#66d9ef">for</span> old_filename <span style="color:#f92672">in</span> handles:
+    <span style="color:#75715e"># Create new filename in a readable format for Plex</span>
+    new_filename <span style="color:#f92672">=</span> show_name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; S{}E{}&#39;</span><span style="color:#f92672">.</span>format(old_filename[:<span style="color:#ae81ff">2</span>],
+                                                old_filename[<span style="color:#ae81ff">2</span>:])
+    <span style="color:#75715e"># Create the command for running Handbrake for each path and filename</span>
+    command <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;&#34;C:\Program Files\HandbrakeCLI\HandBrakeCLI.exe&#34; -v0 -i &#34;&#39;</span> <span style="color:#f92672">+</span>
+               input_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;{}.mkv&#34; -o &#34;&#39;</span><span style="color:#f92672">.</span>format(old_filename) <span style="color:#f92672">+</span> output_path <span style="color:#f92672">+</span>
+               <span style="color:#e6db74">&#39;{}.mp4&#34; --preset=&#34;Normal&#34;&#39;</span><span style="color:#f92672">.</span>format(new_filename))
+ 
+    <span style="color:#66d9ef">print</span>(old_filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; conversion started&#39;</span>)
+    call(command, shell<span style="color:#f92672">=</span>True)
+    <span style="color:#66d9ef">print</span>(new_filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; converted&#39;</span>)</code></pre></div>
+<p>I had just finished up the script and ran a short test when Windows gave me an “Imminent Hard Drive Failure” warning for my Media drive. Instead of taking a chance to going ahead with running this script, I powered down the computer, hopped on my laptop, and ordered a replacement drive so I can back up everything.</p>
+<p>Once the drive arrives and I have copied everything. I will continue with running the script and post a short update to this post.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/programming/" rel="tag">Programming</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			<aside class="sidebar">
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/blog/">Blog</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/projects/">Projects</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/3d-printing/" title="3D Printing">3D Printing</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cnc/" title="CNC">CNC</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cnc-milling/" title="cnc milling">cnc milling</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mostly-printed-cnc/" title="mostly printed cnc">mostly printed cnc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mpcnc/" title="mpcnc">mpcnc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/programming/" title="Programming">Programming</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020 Geoffrey Tuttle.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

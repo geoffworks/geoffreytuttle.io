@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>3d Scanner - MATLAB - Geoffrey Tuttle</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Geoffrey Tuttle" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Geoffrey Tuttle</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">3d Scanner - MATLAB</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2014-05-09T20:39:00Z">Friday, May 9, 2014</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/projects/" rel="category">Projects</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<p>For a project in my computational physics class, I wanted to create something more than a program. With an old webcam, a pantry turntable, and a cheap laser, I figured I could use MATLAB&rsquo;s image processing abilities to create proof-of-concept 3d scanner.</p>
+<p><img src="/img/wp_imgs/2014/05/2014-05-09-15-17-55.jpg" alt="2014-05-09 15.17.55.jpg"></p>
+<p>By centering the object on the turntable, and projecting the laser line onto the object, I can use the camera to collect images while rotating the object at known intervals. The images are then fed into a MATLAB script that calculates the deviation of the laser from the center of the image. Using these deviations, I can plot the location in Cartesian coordinates, and have a rough estimation of the objects outer dimensions.</p>
+<p><img src="/img/wp_imgs/2014/05/2014-05-09-15-18-39.jpg" alt="2014-05-09 15.18.39.jpg"></p>
+<p>Knowing the distance from the camera to the center of the turntable, the distance from the laser to the camera, and the angle of rotation, I can figure out how far to the left the profile of the object deviates from the center of the image, giving me an x and y coordinate. Height z is extracted from the pixel height on the image. Here are a few sample of plotted data from a simulated sphere and cone, as well as data collected from a baseball on the turntable</p>
+<p><img src="/img/wp_imgs/2014/05/cone1.jpg?w=300" alt="Cone"></p>
+<p><img src="/img/wp_imgs/2014/05/sphere1.jpg?w=300" alt="Sphere"></p>
+<p><img src="/img/wp_imgs/2014/05/baseball2.jpg" alt="Baseball.jpg"></p>
+<p>The collected images suffered from some scaling issues in the x-y plane, and is probably due to the object not being centered on the turntable, or a shift during intervals of rotation. The simulated data came out better than expected, proving that, with a bit of work, this could be a robust little scanner. There is much future work that could be done with this project. The plotted data could be turned into a mesh, creating a fully enclosed 3d object, and the setup could be made much more rigid and automated with a stepper, allowing for smaller turntable rotation intervals and therefore better resolution.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/3d-printing/" rel="tag">3D Printing</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/programming/" rel="tag">Programming</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			<aside class="sidebar">
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/blog/">Blog</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/projects/">Projects</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/3d-printing/" title="3D Printing">3D Printing</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cnc/" title="CNC">CNC</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cnc-milling/" title="cnc milling">cnc milling</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mostly-printed-cnc/" title="mostly printed cnc">mostly printed cnc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mpcnc/" title="mpcnc">mpcnc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/programming/" title="Programming">Programming</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020 Geoffrey Tuttle.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

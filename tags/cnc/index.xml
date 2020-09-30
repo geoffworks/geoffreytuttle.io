@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CNC on Geoffrey Tuttle</title>
+    <link>https://www.geoffreytuttle.com/tags/cnc/</link>
+    <description>Recent content in CNC on Geoffrey Tuttle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Feb 2018 03:11:14 +0000</lastBuildDate><atom:link href="https://www.geoffreytuttle.com/tags/cnc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MPCNC - Printing and X-Y Assembly</title>
+      <link>https://www.geoffreytuttle.com/blog/mpcnc-printing-and-x-y-assembly/</link>
+      <pubDate>Thu, 22 Feb 2018 03:11:14 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/blog/mpcnc-printing-and-x-y-assembly/</guid>
+      <description>When I last posted, I had just begun printing the pieces for the Mostly Printed CNC machine. Now, about 120 machine hours and several hours of assembly later, it&amp;rsquo;s time for an update!
+Printing and Reprinting Each part was printed at 55% infill, with 3 perimeters, and at 55mm/s. That was a little fast, and resulted in some ringing in the print features, but the parts didn&amp;rsquo;t need to be pretty, just accurate and functional.</description>
+    </item>
+    
+    <item>
+      <title>Mostly Printed CNC Build - Intro</title>
+      <link>https://www.geoffreytuttle.com/blog/mostly-printed-cnc-build-intro/</link>
+      <pubDate>Tue, 06 Feb 2018 04:46:20 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/blog/mostly-printed-cnc-build-intro/</guid>
+      <description>Over the next month or two, I will build the Mostly Printed CNC (MPCNC), as found on the website v1engineering.com. It is a CNC platform that can be assembled out of inexpensive electronics and hardware, EMT conduit, and 3d printed components. Here is a link to the project specifications and build instructions.
+This machine can be much more than a typical milling machine: pen plotters, needle cutters, drag knifes, even laser cutting and engraving!</description>
+    </item>
+    
+  </channel>
+</rss>

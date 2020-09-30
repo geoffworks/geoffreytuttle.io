@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mostly printed cnc on Geoffrey Tuttle</title>
+    <link>https://www.geoffreytuttle.com/tags/mostly-printed-cnc/</link>
+    <description>Recent content in mostly printed cnc on Geoffrey Tuttle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Feb 2018 04:46:20 +0000</lastBuildDate><atom:link href="https://www.geoffreytuttle.com/tags/mostly-printed-cnc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mostly Printed CNC Build - Intro</title>
+      <link>https://www.geoffreytuttle.com/blog/mostly-printed-cnc-build-intro/</link>
+      <pubDate>Tue, 06 Feb 2018 04:46:20 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/blog/mostly-printed-cnc-build-intro/</guid>
+      <description>Over the next month or two, I will build the Mostly Printed CNC (MPCNC), as found on the website v1engineering.com. It is a CNC platform that can be assembled out of inexpensive electronics and hardware, EMT conduit, and 3d printed components. Here is a link to the project specifications and build instructions.
+This machine can be much more than a typical milling machine: pen plotters, needle cutters, drag knifes, even laser cutting and engraving!</description>
+    </item>
+    
+  </channel>
+</rss>

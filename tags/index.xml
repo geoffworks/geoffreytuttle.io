@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Geoffrey Tuttle</title>
+    <link>https://www.geoffreytuttle.com/tags/</link>
+    <description>Recent content in Tags on Geoffrey Tuttle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Feb 2018 03:11:14 +0000</lastBuildDate><atom:link href="https://www.geoffreytuttle.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3D Printing</title>
+      <link>https://www.geoffreytuttle.com/tags/3d-printing/</link>
+      <pubDate>Thu, 22 Feb 2018 03:11:14 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/tags/3d-printing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CNC</title>
+      <link>https://www.geoffreytuttle.com/tags/cnc/</link>
+      <pubDate>Thu, 22 Feb 2018 03:11:14 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/tags/cnc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cnc milling</title>
+      <link>https://www.geoffreytuttle.com/tags/cnc-milling/</link>
+      <pubDate>Tue, 06 Feb 2018 04:46:20 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/tags/cnc-milling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mostly printed cnc</title>
+      <link>https://www.geoffreytuttle.com/tags/mostly-printed-cnc/</link>
+      <pubDate>Tue, 06 Feb 2018 04:46:20 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/tags/mostly-printed-cnc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mpcnc</title>
+      <link>https://www.geoffreytuttle.com/tags/mpcnc/</link>
+      <pubDate>Tue, 06 Feb 2018 04:46:20 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/tags/mpcnc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://www.geoffreytuttle.com/tags/programming/</link>
+      <pubDate>Sun, 07 Aug 2016 19:35:17 +0000</pubDate>
+      
+      <guid>https://www.geoffreytuttle.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

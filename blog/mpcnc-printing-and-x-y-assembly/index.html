@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MPCNC - Printing and X-Y Assembly - Geoffrey Tuttle</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="Geoffrey Tuttle" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Geoffrey Tuttle</div>
+					
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">MPCNC - Printing and X-Y Assembly</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-02-22T03:11:14Z">Thursday, Feb 22, 2018</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/blog/" rel="category">Blog</a>
+	</span>
+</div></div>
+		</header><div class="content post__content clearfix">
+			<p>When I <a href="https://geoffreytuttle.wordpress.com/2018/02/05/mostly-printed-cnc-build-intro/">last posted</a>, I had just begun printing the pieces for the Mostly Printed CNC machine. Now, about 120 machine hours and several hours of assembly later, it&rsquo;s time for an update!</p>
+<h3 id="printing-and-reprinting">Printing and Reprinting</h3>
+<p>Each part was printed at 55% infill, with 3 perimeters, and at 55mm/s. That was a little fast, and resulted in some ringing in the print features, but the parts didn&rsquo;t need to be pretty, just accurate and functional.</p>
+<p><img src="/img/wp_imgs/2018/02/2018-02-11-18-18-43.jpg" alt="2018-02-11 18.18.43">
+<em>Infill on failed piece</em></p>
+<p>Early on in the prints, I ran out of white PLA, and swapped to a roll of black PLA. An attempt at hot-swapping to the new roll during a print resulted in a weak part, which easily snapped at the filament change layer. I recommend pausing, moving the tool to a good location, then purging the hot end until the new material is flowing smoothly.</p>
+<p><img src="/img/wp_imgs/2018/02/2018-02-12-07-10-15.jpg" alt="2018-02-12 07.10.15">
+<em>The longest batch. I think this was about 19 hours of printing</em></p>
+<p>All this printing also taught me how inaccurate the print time estimates are. On average, each set of prints took about 20% longer than expected. This wasn&rsquo;t too much of a problem, since most prints were taking place at night. At the end of printing, I used over 2.5 lbs of plastic to print the 45 parts</p>
+<p><img src="/img/wp_imgs/2018/02/2018-02-17-14-45-26.jpg" alt="2018-02-17 14.45.26">
+<em>All the printed parts</em></p>
+<h3 id="assembly">Assembly</h3>
+<p>With all the parts printed, it was time to install all the bolts and bearings. Assembly was a painless process, and I was soon ready to install the conduit. \</p>
+<p><img src="/img/wp_imgs/2018/02/2018-02-17-17-17-29.jpg" alt="2018-02-17 17.17.29"></p>
+<p>The original plan was to to have a 24 by 24 inch build area. This would have required a table measuring almost 3 by 3 feet. At the moment, I don&rsquo;t have that kind of space to dedicate to this machine. I opted to scale down to 11 by 11 inches, which fits on top of an Ikea Lack side table. With 20 feet of conduit costing well under $20, I can easily rebuild the table at a larger scale when I have the space.</p>
+<h3 id="x-y-gantry">X-Y Gantry</h3>
+<p><img src="/img/wp_imgs/2018/02/2018-02-19-18-56-52.jpg" alt="2018-02-19 18.56.52"></p>
+<p>At the moment, the x-y axes are in place and rolling with no play in the motion. Next on the agenda is wiring up the steppers and control board, assembling and installing the z-axis, then connecting to the computer to test the stepper motion. I think I will start with a drag knife to get the hang of using the machine, then upgrade to a laser cutter or rotary tool.</p>
+<p><img src="/img/wp_imgs/2018/02/2018-02-19-18-56-31.jpg" alt="2018-02-19 18.56.31"></p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/3d-printing/" rel="tag">3D Printing</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/cnc/" rel="tag">CNC</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			<aside class="sidebar">
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/blog/">Blog</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/projects/">Projects</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/3d-printing/" title="3D Printing">3D Printing</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cnc/" title="CNC">CNC</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cnc-milling/" title="cnc milling">cnc milling</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mostly-printed-cnc/" title="mostly printed cnc">mostly printed cnc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mpcnc/" title="mpcnc">mpcnc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/programming/" title="Programming">Programming</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020 Geoffrey Tuttle.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
